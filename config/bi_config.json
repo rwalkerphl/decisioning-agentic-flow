@@ -1,0 +1,109 @@
+{
+  "project": {
+    "name": "business-intelligence-agentic-flow",
+    "version": "0.1.0",
+    "description": "Multi-source business analytics with agentic workflows"
+  },
+  "data_sources": [
+    {
+      "name": "fusion_demo",
+      "type": "oracle_mcp",
+      "enabled": true,
+      "config": {
+        "schema": "FUSION_DEMO",
+        "connection_name": "oracle-database",
+        "tables": [
+          "PPM_PROJECTS",
+          "PPM_TASKS",
+          "PPM_EXPENDITURES",
+          "PPM_BILLING_EVENTS",
+          "AR_TRX_HEADERS",
+          "AR_TRX_LINES",
+          "AR_RECEIPTS",
+          "AR_PAYMENT_SCHEDULES",
+          "HZ_CUST_ACCOUNTS",
+          "HZ_PARTIES",
+          "HZ_CUST_ACCT_SITES",
+          "AR_TERMS",
+          "AR_DISTRIBUTIONS"
+        ]
+      },
+      "refresh_interval": "1h",
+      "priority": 1
+    }
+  ],
+  "agents": {
+    "discovery_agent": {
+      "enabled": true,
+      "timeout": 300,
+      "retry_attempts": 3,
+      "cache_duration": "24h"
+    },
+    "metrics_agent": {
+      "enabled": true,
+      "timeout": 600,
+      "parallel_queries": true,
+      "metrics": [
+        "financial_health",
+        "operational_efficiency",
+        "customer_analytics",
+        "cash_flow_analysis"
+      ]
+    },
+    "pattern_agent": {
+      "enabled": true,
+      "ml_enabled": false,
+      "anomaly_threshold": 0.95,
+      "correlation_threshold": 0.7
+    },
+    "visualization_agent": {
+      "enabled": true,
+      "dashboard_type": "streamlit",
+      "auto_refresh": true,
+      "refresh_interval": "15m"
+    }
+  },
+  "workflow": {
+    "parallel_execution": true,
+    "max_concurrent_agents": 4,
+    "timeout": 1800,
+    "retry_policy": {
+      "max_retries": 2,
+      "retry_delay": 30
+    }
+  },
+  "output": {
+    "format": "json",
+    "include_raw_data": false,
+    "compress_results": true,
+    "retention_days": 30
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "logs/bi_agentic_flow.log",
+    "max_size_mb": 100,
+    "backup_count": 5
+  },
+  "dashboard": {
+    "title": "Business Intelligence Dashboard",
+    "theme": "light",
+    "port": 8501,
+    "components": [
+      "executive_summary",
+      "financial_metrics",
+      "cash_flow_analysis",
+      "project_portfolio",
+      "customer_intelligence",
+      "recommendations"
+    ]
+  },
+  "alerts": {
+    "enabled": true,
+    "channels": ["console", "email"],
+    "thresholds": {
+      "cash_flow_health": 30,
+      "collection_rate": 50,
+      "overdue_ar_percentage": 80
+    }
+  }
+}
