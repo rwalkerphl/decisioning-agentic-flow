@@ -1,0 +1,16 @@
+schema_version: 20180708
+name: query-router-agent
+version: 1.0.0
+runtime: python
+entrypoint: /python/bin/fdk /function/func.py handler
+memory: 1024
+timeout: 300
+build_image: fnproject/python:3.9-dev
+run_image: fnproject/python:3.9
+config:
+  AGENT_TYPE: "query_router"
+  LOG_LEVEL: "INFO"
+  CLAUDE_MODEL: "claude-3-5-sonnet-20241022"
+  MAX_TOKENS: "2000"
+  ENABLE_CONVERSATION_HISTORY: "true"
+  ENABLE_PARALLEL_ROUTING: "true"
