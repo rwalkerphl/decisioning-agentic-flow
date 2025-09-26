@@ -96,55 +96,40 @@ pip install -r requirements.txt
 
 ### Run Analysis
 ```bash
-python business_intel_flow.py
+python decisioning_flow.py
 ```
 
 ### View Dashboard
 ```bash
-streamlit run dashboard.py
+streamlit run dashboards/decisioning_dashboard.py
 ```
 
 ## 📁 Project Structure
 
 ```
 decisioning-agentic-flow/
-├── README.md                    # This file
-├── requirements.txt             # Python dependencies
+├── README.md                        # Project overview and documentation
+├── SETUP.md                         # GitHub setup instructions
+├── requirements.txt                 # Python dependencies
+├── decisioning_flow.py              # Main entry point
+├── setup_github_auth.sh             # GitHub authentication setup
+├── auto_push.sh                     # Automated Git workflow
 ├── config/
-│   ├── bi_config.json          # Business intelligence configuration
-│   └── data_sources.yaml       # Data source definitions
+│   └── bi_config.json              # Business intelligence configuration
 ├── src/
-│   ├── agents/                 # Individual agent implementations
-│   │   ├── discovery_agent.py  # Data discovery and cataloging
-│   │   ├── metrics_agent.py    # Business metrics calculation
-│   │   ├── pattern_agent.py    # Pattern recognition and insights
-│   │   └── viz_agent.py        # Dashboard and visualization
-│   ├── orchestration/          # Workflow coordination
-│   │   ├── orchestrator.py     # Main workflow orchestrator
-│   │   └── task_manager.py     # Task scheduling and management
-│   ├── connectors/             # Data source connectors
-│   │   ├── oracle_mcp.py       # Oracle MCP connector
-│   │   ├── api_connector.py    # Generic API connector
-│   │   └── file_connector.py   # File-based data sources
-│   └── utils/                  # Utility functions
-│       ├── data_models.py      # Unified data models
-│       └── helpers.py          # Common helper functions
-├── dashboards/                 # Dashboard implementations
-│   ├── streamlit_app.py        # Main Streamlit dashboard
-│   └── templates/              # Dashboard templates
-├── docs/                       # Documentation
-│   ├── architecture.md         # System architecture
-│   ├── agent_specs.md          # Agent specifications
-│   └── crewai_migration.md     # Migration framework
-├── tests/                      # Test suite
-│   ├── test_agents.py          # Agent unit tests
-│   └── test_integration.py     # Integration tests
-├── deployment/                 # Deployment configurations
-│   ├── docker/                 # Docker configurations
-│   └── k8s/                    # Kubernetes manifests
-└── examples/                   # Example configurations and outputs
-    ├── sample_config.json      # Sample configuration
-    └── sample_output.json      # Sample analysis output
+│   ├── __init__.py
+│   └── orchestration/
+│       ├── __init__.py
+│       └── orchestrator.py         # Main workflow orchestrator
+├── dashboards/
+│   ├── decisioning_dashboard.py    # Interactive Streamlit dashboard
+│   └── templates/                  # Dashboard templates
+├── docs/
+│   ├── architecture_diagrams.md    # Complete architecture diagrams
+│   └── crewai_migration.md         # CrewAI migration framework
+├── logs/                           # System logs
+├── decisioning_results.json       # Latest analysis results
+└── executive_summary.json         # Executive decision summary
 ```
 
 ## 🤖 Agent Ecosystem
@@ -307,12 +292,12 @@ graph LR
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🔗 Links
+## 🔗 Documentation
 
-- [Architecture Documentation](docs/architecture.md)
-- [Agent Specifications](docs/agent_specs.md)
-- [CrewAI Migration Guide](docs/crewai_migration.md)
-- [API Documentation](docs/api.md)
+- [📊 Complete Architecture Diagrams](docs/architecture_diagrams.md)
+- [🤖 CrewAI Migration Guide](docs/crewai_migration.md)
+- [🚀 GitHub Setup Instructions](SETUP.md)
+- [⚙️ Configuration Guide](config/bi_config.json)
 
 ## 📧 Contact
 
