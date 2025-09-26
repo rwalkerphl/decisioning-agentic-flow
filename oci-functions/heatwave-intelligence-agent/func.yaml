@@ -1,0 +1,16 @@
+schema_version: 20180708
+name: heatwave-intelligence-agent
+version: 1.0.0
+runtime: python
+entrypoint: /python/bin/fdk /function/func.py handler
+memory: 1024
+timeout: 600
+build_image: fnproject/python:3.9-dev
+run_image: fnproject/python:3.9
+config:
+  AGENT_TYPE: "intelligence"
+  LOG_LEVEL: "INFO"
+  MYSQL_CONNECTION_TIMEOUT: "30"
+  HEATWAVE_ENABLED: "true"
+  USE_ML_PREDICTIONS: "true"
+  PARALLEL_QUERIES: "true"
