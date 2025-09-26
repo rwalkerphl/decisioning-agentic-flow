@@ -1,0 +1,50 @@
+{
+  "situation_assessment": {
+    "business_health": "Profitable but cash-constrained",
+    "urgency_level": "Critical",
+    "strategic_position": "Strong with financial vulnerability",
+    "immediate_risk": "Liquidity crisis"
+  },
+  "key_decisions_required": [
+    {
+      "decision": "Emergency Cash Flow Recovery",
+      "action": "Launch immediate collections program",
+      "timeline": "48 hours",
+      "owner": "CFO",
+      "success_metric": "$1M+ recovered in 60 days"
+    },
+    {
+      "decision": "Billing Process Transformation",
+      "action": "Implement milestone-based billing",
+      "timeline": "30 days",
+      "owner": "Operations Director",
+      "success_metric": "40% improvement in cash velocity"
+    },
+    {
+      "decision": "Customer Portfolio Optimization",
+      "action": "Implement credit scoring and risk management",
+      "timeline": "90 days",
+      "owner": "Sales Director",
+      "success_metric": "70% reduction in bad debt"
+    }
+  ],
+  "financial_projections": {
+    "current_state": {
+      "cash_at_risk": 2481103.61,
+      "collection_rate": 40,
+      "business_sustainability": "at_risk"
+    },
+    "projected_improvement": {
+      "60_day_target": "80% collection rate",
+      "120_day_target": "90% collection rate",
+      "cash_recovery": "$1.8M+"
+    }
+  },
+  "strategic_recommendations": [
+    "Execute emergency cash flow recovery as top priority",
+    "Transform billing processes for sustainable cash management",
+    "Implement AI-powered financial intelligence for future prevention",
+    "Rebalance customer portfolio to reduce credit risk",
+    "Maintain operational excellence while fixing financial processes"
+  ]
+}

@@ -35,9 +35,12 @@ class DataSource:
     name: str
     type: str  # oracle_mcp, file, api
     config: Dict[str, Any]
+    enabled: bool = True
     status: str = "inactive"
     schema_info: Optional[Dict] = None
     last_updated: Optional[datetime] = None
+    refresh_interval: str = "1h"
+    priority: int = 1
 
 class DecisioningOrchestrator:
     """

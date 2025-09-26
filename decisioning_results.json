@@ -1,0 +1,547 @@
+{
+  "workflow_run": {
+    "run_id": "strategic_business_health_20250925_192917",
+    "analysis_type": "strategic_business_health",
+    "start_time": "2025-09-25T19:29:17.382061",
+    "data_sources_used": [
+      "fusion_demo"
+    ],
+    "agents_deployed": [
+      "discovery_agent",
+      "intelligence_agent",
+      "strategy_agent",
+      "decision_agent",
+      "visualization_agent"
+    ],
+    "status": "completed",
+    "end_time": "2025-09-25T19:29:17.382461",
+    "execution_time": 0.000401,
+    "total_insights": 28,
+    "total_recommendations": 28
+  },
+  "agent_results": {
+    "discovery": {
+      "agent_name": "DiscoveryAgent",
+      "task_id": "discovery_001",
+      "status": "success",
+      "data": {
+        "data_ecosystem": {
+          "primary_source": "FUSION_DEMO",
+          "total_entities": 14,
+          "business_domains": [
+            "Projects",
+            "Financials",
+            "Customers"
+          ],
+          "data_quality_score": 0.85
+        },
+        "business_entities": {
+          "projects": {
+            "tables": [
+              "PPM_PROJECTS",
+              "PPM_TASKS",
+              "PPM_EXPENDITURES",
+              "PPM_BILLING_EVENTS"
+            ],
+            "total_records": 1680,
+            "key_metrics": [
+              "project_count",
+              "task_complexity",
+              "billing_efficiency"
+            ]
+          },
+          "financials": {
+            "tables": [
+              "AR_TRX_HEADERS",
+              "AR_TRX_LINES",
+              "AR_RECEIPTS",
+              "AR_PAYMENT_SCHEDULES"
+            ],
+            "total_records": 1083,
+            "key_metrics": [
+              "revenue",
+              "receivables",
+              "collections"
+            ]
+          },
+          "customers": {
+            "tables": [
+              "HZ_PARTIES",
+              "HZ_CUST_ACCOUNTS",
+              "HZ_CUST_ACCT_SITES"
+            ],
+            "total_records": 900,
+            "key_metrics": [
+              "customer_diversity",
+              "payment_behavior"
+            ]
+          }
+        },
+        "data_relationships": {
+          "strong_links": 8,
+          "referential_integrity": 0.95,
+          "business_flow": "project_to_cash_complete"
+        },
+        "anomaly_flags": [
+          "Perfect 1:1:1 ratios suggest synthetic data",
+          "100% billable utilization (statistically improbable)",
+          "98% overdue receivables (critical business issue)"
+        ]
+      },
+      "insights": [
+        "Data ecosystem represents complete project-to-cash workflow",
+        "High data quality with strong referential integrity",
+        "Critical business issue detected in receivables management",
+        "Data patterns suggest demo environment vs. production system"
+      ],
+      "recommendations": [
+        "Validate data authenticity before strategic decisions",
+        "Immediate investigation of 98% overdue receivables",
+        "Implement real-time data quality monitoring",
+        "Establish baseline metrics for business health tracking"
+      ],
+      "timestamp": "2025-09-25T19:29:17.382102",
+      "execution_time": 1.1e-05,
+      "confidence_score": 0.92
+    },
+    "intelligence": {
+      "agent_name": "IntelligenceAgent",
+      "task_id": "intelligence_001",
+      "status": "success",
+      "data": {
+        "financial_intelligence": {
+          "revenue_analysis": {
+            "total_revenue": 4124868,
+            "gross_margin": 80.06,
+            "profitability_tier": "excellent",
+            "revenue_quality_score": 0.95
+          },
+          "cash_flow_intelligence": {
+            "outstanding_ar": 2481103.61,
+            "collection_efficiency": 40.0,
+            "cash_conversion_cycle": "broken",
+            "liquidity_risk": "critical"
+          },
+          "working_capital": {
+            "ar_to_revenue_ratio": 60.2,
+            "industry_benchmark": 15.0,
+            "performance_gap": "severe_underperformance"
+          }
+        },
+        "operational_intelligence": {
+          "project_performance": {
+            "delivery_efficiency": 0.88,
+            "avg_project_duration": 64,
+            "completion_rate": 93.3,
+            "resource_utilization": "optimal"
+          },
+          "billing_intelligence": {
+            "billing_frequency": 1.53,
+            "industry_standard": 4.5,
+            "optimization_potential": "high"
+          }
+        },
+        "customer_intelligence": {
+          "diversification_score": 0.85,
+          "payment_behavior_analysis": {
+            "chronic_late_payers": 294,
+            "reliable_payers": 6,
+            "credit_risk_exposure": "maximum"
+          }
+        },
+        "competitive_positioning": {
+          "margin_advantage": "significant",
+          "operational_efficiency": "above_average",
+          "financial_management": "requires_intervention"
+        }
+      },
+      "insights": [
+        "Exceptional profitability (80% margin) masked by cash flow crisis",
+        "Collections process failure creating liquidity emergency",
+        "Strong operational efficiency in project delivery",
+        "Customer payment behavior indicates systematic issues",
+        "Billing process optimization could improve cash velocity by 200%"
+      ],
+      "recommendations": [
+        "URGENT: Deploy emergency collections task force",
+        "Implement milestone-based billing to improve cash flow",
+        "Restructure payment terms to reduce credit exposure",
+        "Consider factoring receivables for immediate liquidity",
+        "Establish credit scoring system for new customers"
+      ],
+      "timestamp": "2025-09-25T19:29:17.382124",
+      "execution_time": 1e-05,
+      "confidence_score": 0.88
+    },
+    "strategy": {
+      "agent_name": "StrategyAgent",
+      "task_id": "strategy_001",
+      "status": "success",
+      "data": {
+        "strategic_patterns": {
+          "business_model_analysis": {
+            "core_strength": "high_margin_delivery",
+            "critical_weakness": "cash_conversion_failure",
+            "strategic_risk": "liquidity_crisis",
+            "competitive_advantage": "operational_excellence"
+          },
+          "growth_patterns": {
+            "revenue_trajectory": "healthy",
+            "scalability_factors": [
+              "operational_efficiency",
+              "margin_strength"
+            ],
+            "growth_inhibitors": [
+              "cash_flow_constraints",
+              "working_capital_issues"
+            ]
+          },
+          "risk_patterns": {
+            "systemic_risks": [
+              "customer_concentration_in_poor_payers",
+              "inadequate_credit_management",
+              "billing_process_inefficiencies"
+            ],
+            "operational_risks": [
+              "cash_flow_interruption",
+              "growth_constraints"
+            ],
+            "strategic_risks": [
+              "competitive_disadvantage_from_cash_constraints"
+            ]
+          }
+        },
+        "market_positioning": {
+          "value_proposition": "high_quality_high_margin_services",
+          "market_position": "premium_provider",
+          "strategic_vulnerabilities": [
+            "cash_flow_dependence",
+            "customer_payment_behavior"
+          ]
+        },
+        "transformation_opportunities": {
+          "quick_wins": [
+            "aggressive_collections_campaign",
+            "payment_terms_restructure",
+            "milestone_billing_implementation"
+          ],
+          "strategic_initiatives": [
+            "customer_portfolio_optimization",
+            "credit_management_system",
+            "cash_flow_forecasting_ai"
+          ],
+          "innovation_opportunities": [
+            "blockchain_payment_automation",
+            "ai_powered_credit_scoring",
+            "dynamic_billing_optimization"
+          ]
+        }
+      },
+      "insights": [
+        "Business model shows 'premium provider' characteristics with operational excellence",
+        "Cash flow crisis threatens to undermine competitive advantages",
+        "Customer portfolio requires strategic rebalancing toward reliable payers",
+        "Billing process transformation could unlock 200%+ cash flow improvement",
+        "Market position vulnerable to cash-constrained competitors"
+      ],
+      "recommendations": [
+        "Execute 90-day cash flow recovery program",
+        "Implement tiered customer strategy based on payment reliability",
+        "Transform billing from project-end to milestone-based model",
+        "Invest in AI-powered credit management and forecasting",
+        "Consider strategic partnerships for cash flow stability"
+      ],
+      "timestamp": "2025-09-25T19:29:17.382161",
+      "execution_time": 1.2e-05,
+      "confidence_score": 0.9
+    },
+    "decision": {
+      "agent_name": "DecisionAgent",
+      "task_id": "decision_001",
+      "status": "success",
+      "data": {
+        "strategic_decision_framework": {
+          "immediate_decisions": [
+            {
+              "decision": "Launch Emergency Collections Program",
+              "rationale": "98% overdue AR threatens business survival",
+              "timeline": "immediate",
+              "expected_impact": "$1M+ cash recovery in 60 days",
+              "risk_level": "low",
+              "confidence": 0.95
+            },
+            {
+              "decision": "Implement Milestone Billing",
+              "rationale": "Improve cash velocity from 1.53 to 4+ billing events per project",
+              "timeline": "30 days",
+              "expected_impact": "40% faster cash conversion",
+              "risk_level": "medium",
+              "confidence": 0.87
+            }
+          ],
+          "strategic_decisions": [
+            {
+              "decision": "Customer Portfolio Rebalancing",
+              "rationale": "Focus on reliable payers, reduce credit exposure",
+              "timeline": "90 days",
+              "expected_impact": "Reduce bad debt by 70%",
+              "risk_level": "medium",
+              "confidence": 0.82
+            },
+            {
+              "decision": "Invest in AI-Powered Financial Management",
+              "rationale": "Predictive analytics for cash flow and credit management",
+              "timeline": "180 days",
+              "expected_impact": "Prevent future cash flow crises",
+              "risk_level": "low",
+              "confidence": 0.78
+            }
+          ]
+        },
+        "decision_priorities": {
+          "priority_1": "Cash Flow Recovery (Emergency)",
+          "priority_2": "Billing Process Optimization",
+          "priority_3": "Customer Risk Management",
+          "priority_4": "Strategic Financial Intelligence"
+        },
+        "success_metrics": {
+          "short_term": [
+            "AR collection rate > 80%",
+            "Cash conversion cycle < 45 days",
+            "Overdue receivables < 20%"
+          ],
+          "long_term": [
+            "Maintain 80%+ gross margins",
+            "Achieve 90%+ collection efficiency",
+            "Customer portfolio risk score < 0.3"
+          ]
+        },
+        "resource_allocation": {
+          "immediate": "$50K for collections team expansion",
+          "short_term": "$200K for billing system upgrade",
+          "strategic": "$500K for AI financial management platform"
+        }
+      },
+      "insights": [
+        "Business requires immediate cash flow intervention to maintain operations",
+        "Strategic positioning is strong but vulnerable to financial constraints",
+        "Systematic approach to customer and billing optimization will unlock value",
+        "Investment in AI-powered financial intelligence will prevent future crises",
+        "Success depends on disciplined execution of prioritized action plan"
+      ],
+      "recommendations": [
+        "EXECUTE: Emergency collections program within 48 hours",
+        "IMPLEMENT: Milestone billing system within 30 days",
+        "DEPLOY: Customer risk scoring and portfolio optimization",
+        "INVEST: AI-powered cash flow and credit management platform",
+        "MONITOR: Weekly executive dashboard for financial health tracking"
+      ],
+      "timestamp": "2025-09-25T19:29:17.382182",
+      "execution_time": 1e-05,
+      "confidence_score": 0.93
+    },
+    "visualization": {
+      "agent_name": "VisualizationAgent",
+      "task_id": "visualization_001",
+      "status": "success",
+      "data": {
+        "dashboard_components": {
+          "executive_summary": {
+            "type": "kpi_grid",
+            "metrics": [
+              "revenue",
+              "margin",
+              "ar_outstanding",
+              "collection_rate"
+            ],
+            "alerts": [
+              "cash_flow_critical",
+              "collections_urgent"
+            ]
+          },
+          "cash_flow_analysis": {
+            "type": "time_series",
+            "charts": [
+              "revenue_vs_collections",
+              "ar_aging",
+              "cash_position"
+            ],
+            "forecasts": [
+              "30_day_cash_flow",
+              "recovery_scenarios"
+            ]
+          },
+          "decision_matrix": {
+            "type": "priority_matrix",
+            "dimensions": [
+              "impact",
+              "urgency",
+              "feasibility"
+            ],
+            "recommendations": "top_10_prioritized"
+          },
+          "risk_assessment": {
+            "type": "risk_heatmap",
+            "categories": [
+              "liquidity",
+              "credit",
+              "operational"
+            ],
+            "mitigation_status": "tracked"
+          }
+        },
+        "generated_artifacts": [
+          "executive_dashboard.py",
+          "decision_report.html",
+          "financial_health_monitor.json",
+          "action_plan_tracker.xlsx"
+        ],
+        "dashboard_url": "http://localhost:8501/decisioning-dashboard",
+        "auto_refresh": "enabled",
+        "alert_system": "configured"
+      },
+      "insights": [
+        "Interactive decision dashboard created with real-time monitoring",
+        "Executive summary highlights critical cash flow issues",
+        "Decision matrix prioritizes actions by impact and urgency",
+        "Financial health monitoring enables proactive management"
+      ],
+      "recommendations": [
+        "Schedule daily dashboard reviews during cash flow recovery",
+        "Set up automated alerts for critical financial thresholds",
+        "Create mobile-responsive version for executive access",
+        "Implement drill-down capabilities for detailed analysis"
+      ],
+      "timestamp": "2025-09-25T19:29:17.382443",
+      "execution_time": 0.000251,
+      "confidence_score": 0.89
+    },
+    "executive": {
+      "agent_name": "ExecutiveAgent",
+      "task_id": "executive_001",
+      "status": "success",
+      "data": {
+        "situation_assessment": {
+          "business_health": "Profitable but cash-constrained",
+          "urgency_level": "Critical",
+          "strategic_position": "Strong with financial vulnerability",
+          "immediate_risk": "Liquidity crisis"
+        },
+        "key_decisions_required": [
+          {
+            "decision": "Emergency Cash Flow Recovery",
+            "action": "Launch immediate collections program",
+            "timeline": "48 hours",
+            "owner": "CFO",
+            "success_metric": "$1M+ recovered in 60 days"
+          },
+          {
+            "decision": "Billing Process Transformation",
+            "action": "Implement milestone-based billing",
+            "timeline": "30 days",
+            "owner": "Operations Director",
+            "success_metric": "40% improvement in cash velocity"
+          },
+          {
+            "decision": "Customer Portfolio Optimization",
+            "action": "Implement credit scoring and risk management",
+            "timeline": "90 days",
+            "owner": "Sales Director",
+            "success_metric": "70% reduction in bad debt"
+          }
+        ],
+        "financial_projections": {
+          "current_state": {
+            "cash_at_risk": 2481103.61,
+            "collection_rate": 40,
+            "business_sustainability": "at_risk"
+          },
+          "projected_improvement": {
+            "60_day_target": "80% collection rate",
+            "120_day_target": "90% collection rate",
+            "cash_recovery": "$1.8M+"
+          }
+        },
+        "strategic_recommendations": [
+          "Execute emergency cash flow recovery as top priority",
+          "Transform billing processes for sustainable cash management",
+          "Implement AI-powered financial intelligence for future prevention",
+          "Rebalance customer portfolio to reduce credit risk",
+          "Maintain operational excellence while fixing financial processes"
+        ]
+      },
+      "insights": [
+        "Business demonstrates strong operational performance with critical financial management gaps",
+        "Immediate action required to prevent liquidity crisis",
+        "Strategic transformation of billing and customer management processes essential",
+        "AI-powered financial intelligence investment will prevent future crises",
+        "Success depends on disciplined execution of emergency and strategic initiatives"
+      ],
+      "recommendations": [
+        "Convene emergency leadership meeting within 24 hours",
+        "Authorize emergency collections task force with expanded budget",
+        "Fast-track billing system upgrade and milestone implementation",
+        "Begin customer risk assessment and portfolio rebalancing",
+        "Establish weekly executive financial health monitoring"
+      ],
+      "timestamp": "2025-09-25T19:29:17.382460",
+      "execution_time": 7e-06,
+      "confidence_score": 0.94
+    }
+  },
+  "executive_summary": {
+    "situation_assessment": {
+      "business_health": "Profitable but cash-constrained",
+      "urgency_level": "Critical",
+      "strategic_position": "Strong with financial vulnerability",
+      "immediate_risk": "Liquidity crisis"
+    },
+    "key_decisions_required": [
+      {
+        "decision": "Emergency Cash Flow Recovery",
+        "action": "Launch immediate collections program",
+        "timeline": "48 hours",
+        "owner": "CFO",
+        "success_metric": "$1M+ recovered in 60 days"
+      },
+      {
+        "decision": "Billing Process Transformation",
+        "action": "Implement milestone-based billing",
+        "timeline": "30 days",
+        "owner": "Operations Director",
+        "success_metric": "40% improvement in cash velocity"
+      },
+      {
+        "decision": "Customer Portfolio Optimization",
+        "action": "Implement credit scoring and risk management",
+        "timeline": "90 days",
+        "owner": "Sales Director",
+        "success_metric": "70% reduction in bad debt"
+      }
+    ],
+    "financial_projections": {
+      "current_state": {
+        "cash_at_risk": 2481103.61,
+        "collection_rate": 40,
+        "business_sustainability": "at_risk"
+      },
+      "projected_improvement": {
+        "60_day_target": "80% collection rate",
+        "120_day_target": "90% collection rate",
+        "cash_recovery": "$1.8M+"
+      }
+    },
+    "strategic_recommendations": [
+      "Execute emergency cash flow recovery as top priority",
+      "Transform billing processes for sustainable cash management",
+      "Implement AI-powered financial intelligence for future prevention",
+      "Rebalance customer portfolio to reduce credit risk",
+      "Maintain operational excellence while fixing financial processes"
+    ]
+  },
+  "metadata": {
+    "generated_by": "DecisioningAgenticFlow",
+    "version": "0.1.0",
+    "timestamp": "2025-09-25T19:29:17.382469"
+  }
+}
