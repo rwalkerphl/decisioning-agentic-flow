@@ -16,8 +16,8 @@
 # Navigate to project directory
 cd /Users/robinwalker/ai-projects/bi-agentic-flow
 
-# Add GitHub remote (replace YOUR_USERNAME with your GitHub username)
-git remote add origin https://github.com/YOUR_USERNAME/bi-agentic-flow.git
+# Add GitHub remote
+git remote add origin https://github.com/rwalkerphl/bi-agentic-flow.git
 
 # Push to GitHub
 git branch -M main
@@ -25,7 +25,7 @@ git push -u origin main
 ```
 
 ### 3. Verify Repository
-- Visit your repository URL: `https://github.com/YOUR_USERNAME/bi-agentic-flow`
+- Visit your repository URL: `https://github.com/rwalkerphl/bi-agentic-flow`
 - Confirm all files are uploaded correctly
 - Check that README.md displays properly
 
