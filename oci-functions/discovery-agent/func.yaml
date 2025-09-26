@@ -1,0 +1,14 @@
+schema_version: 20180708
+name: discovery-agent
+version: 1.0.0
+runtime: python
+entrypoint: /python/bin/fdk /function/func.py handler
+memory: 512
+timeout: 300
+build_image: fnproject/python:3.9-dev
+run_image: fnproject/python:3.9
+config:
+  AGENT_TYPE: "discovery"
+  LOG_LEVEL: "INFO"
+  DB_CONNECTION_TIMEOUT: "30"
+  CACHE_DURATION: "3600"

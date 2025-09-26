@@ -1,0 +1,182 @@
+# Example Terraform Variables File
+# Copy this file to terraform.tfvars and update with your specific values
+
+# =============================================================================
+# REQUIRED VARIABLES - You MUST provide these values
+# =============================================================================
+
+# OCI Authentication
+tenancy_ocid     = "ocid1.tenancy.oc1..aaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+compartment_ocid = "ocid1.compartment.oc1..aaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+region          = "us-ashburn-1"
+
+# Database Security
+db_admin_password = "SecurePassword123#"  # Min 12 chars, include upper, lower, numeric, special
+
+# =============================================================================
+# ENVIRONMENT CONFIGURATION
+# =============================================================================
+
+environment  = "dev"  # Options: dev, test, stage, prod
+project_name = "decisioning-agentic-flow"
+
+# =============================================================================
+# NETWORK CONFIGURATION
+# =============================================================================
+
+vcn_cidr_block         = "10.0.0.0/16"
+public_subnet_cidr     = "10.0.1.0/24"
+functions_subnet_cidr  = "10.0.2.0/24"
+database_subnet_cidr   = "10.0.3.0/24"
+
+# =============================================================================
+# DATABASE CONFIGURATION
+# =============================================================================
+
+# Basic Configuration
+db_cpu_core_count            = 1      # 1-128 cores
+db_data_storage_size_in_tbs  = 1      # 1-128 TB
+db_auto_scaling_enabled      = true   # Enable auto-scaling
+db_is_serverless             = true   # Serverless for cost optimization
+db_license_model             = "LICENSE_INCLUDED"  # or "BRING_YOUR_OWN_LICENSE"
+
+# =============================================================================
+# FUNCTIONS CONFIGURATION
+# =============================================================================
+
+functions_timeout_in_seconds = 300   # 30-3600 seconds
+functions_memory_in_mbs      = 512   # 128, 256, 512, 1024, 2048, 3008 MB
+
+# =============================================================================
+# API GATEWAY CONFIGURATION
+# =============================================================================
+
+api_gateway_endpoint_type = "PUBLIC"  # "PUBLIC" or "PRIVATE"
+
+# =============================================================================
+# STORAGE CONFIGURATION
+# =============================================================================
+
+enable_object_versioning = true
+object_storage_tier      = "Standard"  # "Standard", "InfrequentAccess", "Archive"
+results_retention_days   = 365         # 30-3650 days
+
+# =============================================================================
+# SECURITY CONFIGURATION
+# =============================================================================
+
+enable_vault_encryption = true
+vault_type              = "DEFAULT"    # "DEFAULT" or "VIRTUAL_PRIVATE"
+enable_mtls             = true         # Enable mutual TLS for database
+
+# =============================================================================
+# MONITORING AND LOGGING
+# =============================================================================
+
+enable_monitoring    = true
+enable_logging       = true
+log_retention_days   = 30    # 7-3653 days
+
+# =============================================================================
+# OPTIONAL: ANALYTICS CLOUD
+# =============================================================================
+
+enable_analytics_cloud   = false  # Set to true to deploy Analytics Cloud
+analytics_capacity_value = 1      # 1-52 OCPUs (only if enabled)
+analytics_license_type   = "LICENSE_INCLUDED"
+
+# =============================================================================
+# BACKUP AND DISASTER RECOVERY
+# =============================================================================
+
+enable_cross_region_backup = false  # Enable for production environments
+backup_retention_days      = 7      # 1-35 days
+
+# =============================================================================
+# COST MANAGEMENT
+# =============================================================================
+
+enable_auto_scaling = true
+budget_amount       = 100    # Monthly budget in USD for cost alerts
+
+# =============================================================================
+# TAGS AND METADATA
+# =============================================================================
+
+cost_center  = "IT-BI"                    # Your cost center code
+owner_email  = "admin@yourcompany.com"    # Owner email for notifications
+
+# Additional custom tags
+additional_tags = {
+  BusinessUnit = "Analytics"
+  Application  = "Business Intelligence"
+  Criticality  = "Medium"
+  Schedule     = "24x7"
+}
+
+# =============================================================================
+# FEATURE FLAGS
+# =============================================================================
+
+enable_gen_ai_agents   = false  # Enable when Gen AI Agents service is available
+enable_apex_application = true  # Deploy APEX dashboard
+enable_streaming       = false  # Enable for real-time processing
+
+# =============================================================================
+# DEVELOPMENT ENVIRONMENT EXAMPLE
+# =============================================================================
+
+# For development environment, you might want:
+# environment                  = "dev"
+# db_cpu_core_count           = 1
+# db_data_storage_size_in_tbs = 1
+# functions_memory_in_mbs     = 256
+# enable_analytics_cloud      = false
+# budget_amount               = 50
+
+# =============================================================================
+# PRODUCTION ENVIRONMENT EXAMPLE
+# =============================================================================
+
+# For production environment, you might want:
+# environment                  = "prod"
+# db_cpu_core_count           = 2
+# db_data_storage_size_in_tbs = 2
+# functions_memory_in_mbs     = 1024
+# enable_analytics_cloud      = true
+# enable_cross_region_backup  = true
+# backup_retention_days       = 35
+# budget_amount               = 500
+
+# =============================================================================
+# NOTES
+# =============================================================================
+
+# 1. Database Password Requirements:
+#    - Minimum 12 characters
+#    - Must include uppercase letters
+#    - Must include lowercase letters
+#    - Must include numeric characters
+#    - Must include special characters
+
+# 2. Region Selection:
+#    Choose a region close to your users for better performance.
+#    Popular regions: us-ashburn-1, us-phoenix-1, eu-frankfurt-1, ap-tokyo-1
+
+# 3. Cost Optimization:
+#    - Use serverless database for variable workloads
+#    - Enable auto-scaling for cost efficiency
+#    - Start with smaller resources and scale up as needed
+
+# 4. Security Best Practices:
+#    - Always enable vault encryption in production
+#    - Use mutual TLS for database connections
+#    - Keep sensitive values in this file secure
+
+# 5. Monitoring:
+#    - Enable monitoring and logging for troubleshooting
+#    - Set appropriate retention periods based on compliance requirements
+
+# 6. Backup Strategy:
+#    - Enable cross-region backup for critical production systems
+#    - Adjust retention periods based on business requirements
