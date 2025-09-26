@@ -4,8 +4,8 @@
 
 ### 1. Create GitHub Repository
 1. Go to https://github.com/new
-2. Repository name: `bi-agentic-flow`
-3. Description: `Business Intelligence Agentic Flow - Multi-source analytics with autonomous agents`
+2. Repository name: `decisioning-agentic-flow`
+3. Description: `Decisioning Agentic Flow - Intelligent decision-making with autonomous agents`
 4. Choose: **Public** (or Private if preferred)
 5. **Do NOT initialize** with README, .gitignore, or license (we already have them)
 6. Click "Create repository"
@@ -17,7 +17,7 @@
 cd /Users/robinwalker/ai-projects/bi-agentic-flow
 
 # Add GitHub remote
-git remote add origin https://github.com/rwalkerphl/bi-agentic-flow.git
+git remote add origin https://github.com/rwalkerphl/decisioning-agentic-flow.git
 
 # Push to GitHub
 git branch -M main
@@ -25,14 +25,14 @@ git push -u origin main
 ```
 
 ### 3. Verify Repository
-- Visit your repository URL: `https://github.com/rwalkerphl/bi-agentic-flow`
+- Visit your repository URL: `https://github.com/rwalkerphl/decisioning-agentic-flow`
 - Confirm all files are uploaded correctly
 - Check that README.md displays properly
 
 ## 📋 Current Repository Contents
 
 ```
-bi-agentic-flow/
+decisioning-agentic-flow/
 ├── README.md                    # Project overview and documentation
 ├── requirements.txt             # Python dependencies
 ├── config/

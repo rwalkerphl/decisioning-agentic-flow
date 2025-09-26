@@ -1,8 +1,8 @@
 {
   "project": {
-    "name": "business-intelligence-agentic-flow",
+    "name": "decisioning-agentic-flow",
     "version": "0.1.0",
-    "description": "Multi-source business analytics with agentic workflows"
+    "description": "Intelligent decision-making system with multi-source analytics and agentic workflows"
   },
   "data_sources": [
     {

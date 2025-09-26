@@ -1,6 +1,6 @@
-# Business Intelligence Agentic Flow
+# Decisioning Agentic Flow
 
-An intelligent, multi-source business analytics system using agentic workflows to automatically discover, analyze, and visualize business data with actionable insights.
+An intelligent decision-making system that uses autonomous agents to discover, analyze, and synthesize multi-source business data into actionable insights and strategic recommendations.
 
 ## 🎯 Project Overview
 
@@ -44,7 +44,7 @@ streamlit run dashboard.py
 ## 📁 Project Structure
 
 ```
-bi-agentic-flow/
+decisioning-agentic-flow/
 ├── README.md                    # This file
 ├── requirements.txt             # Python dependencies
 ├── config/
