@@ -1,0 +1,244 @@
+# Goose Configuration for Decisioning Agentic Flow
+version: "1.0"
+
+# LLM Provider Configuration
+# Goose supports: OpenAI, Anthropic, Google, OpenRouter, Local (Ollama)
+provider:
+  name: anthropic
+  model: claude-sonnet-4-5-20250929
+  # API key from environment variable
+  api_key_env: ANTHROPIC_API_KEY
+  
+  # Optional: Multi-model configuration for cost optimization
+  # Use different models for different complexity levels
+  models:
+    reasoning: claude-sonnet-4-5-20250929  # Complex analysis
+    execution: claude-sonnet-4-20250514    # Task execution
+    summarization: claude-haiku-20250305   # Quick summaries
+
+# MCP Servers
+# Your existing Oracle connector works out of the box!
+mcp_servers:
+  # Your existing Oracle FUSION_DEMO connector
+  oracle-fusion-demo:
+    command: python
+    args: ["-m", "mcp_oracle_connector"]
+    env:
+      DB_HOST: ${ORACLE_HOST}
+      DB_PORT: ${ORACLE_PORT}
+      DB_SERVICE: ${ORACLE_SERVICE}
+      DB_USER: ${ORACLE_USER}
+      DB_PASSWORD: ${ORACLE_PASSWORD}
+    
+  # Future: Add more data sources as MCP servers
+  # salesforce:
+  #   command: npx
+  #   args: ["-y", "@modelcontextprotocol/server-salesforce"]
+  #   env:
+  #     SALESFORCE_TOKEN: ${SALESFORCE_TOKEN}
+  
+  # slack:
+  #   command: npx
+  #   args: ["-y", "@modelcontextprotocol/server-slack"]
+  #   env:
+  #     SLACK_BOT_TOKEN: ${SLACK_BOT_TOKEN}
+
+# Goose Extensions
+# Built-in extensions + your custom agent extensions
+extensions:
+  # Built-in Goose extensions
+  developer:
+    enabled: true
+    description: "Code execution, file operations, testing"
+  
+  computer_controller:
+    enabled: true
+    description: "Browser automation, system control"
+  
+  # Your custom decisioning agent extensions
+  # These will be loaded from ./goose_extensions/ directory
+  decisioning:
+    enabled: true
+    path: "./goose_extensions"
+    agents:
+      discovery:
+        priority: 1
+        description: "Data discovery and quality assessment"
+        capabilities:
+          - schema_analysis
+          - data_quality_assessment
+          - relationship_mapping
+        output: "data_landscape_report"
+      
+      intelligence:
+        priority: 2
+        description: "Business metrics and KPI analysis"
+        capabilities:
+          - financial_analysis
+          - operational_metrics
+          - customer_intelligence
+        output: "business_intelligence_report"
+      
+      strategy:
+        priority: 3
+        description: "Pattern recognition and strategic insights"
+        capabilities:
+          - pattern_detection
+          - risk_analysis
+          - opportunity_identification
+        output: "strategic_insights_report"
+      
+      decision:
+        priority: 4
+        description: "Strategic synthesis and action prioritization"
+        capabilities:
+          - priority_analysis
+          - impact_assessment
+          - resource_planning
+        output: "decision_framework"
+      
+      visualization:
+        priority: 5
+        description: "Dashboard and report generation"
+        capabilities:
+          - chart_generation
+          - dashboard_assembly
+          - report_creation
+        output: "interactive_dashboard"
+
+# Workflows
+# Define multi-agent workflows that Goose can execute
+workflows:
+  # Full strategic analysis (your main use case)
+  full_analysis:
+    description: "Complete end-to-end strategic decision analysis"
+    timeout: 300  # 5 minutes
+    steps:
+      - name: discovery
+        agent: decisioning.discovery
+        task: |
+          Connect to the oracle-fusion-demo MCP server and perform comprehensive data discovery:
+          1. Catalog all tables, schemas, and relationships
+          2. Assess data quality (nulls, duplicates, freshness)
+          3. Calculate dataset statistics
+          Output: Save to decisioning_results.json under 'discovery' key
+        
+      - name: intelligence
+        agent: decisioning.intelligence
+        task: |
+          Based on discovery results, calculate business intelligence metrics:
+          1. Financial health (revenue, margins, AR aging)
+          2. Customer intelligence (concentration risk, payment patterns)
+          3. Operational metrics (project completion, resource utilization)
+          4. Calculate Business Health Score (0-100)
+          Output: Save to decisioning_results.json under 'intelligence' key
+        depends_on: [discovery]
+        
+      - name: strategy
+        agent: decisioning.strategy
+        task: |
+          Analyze business intelligence to identify strategic patterns:
+          1. Detect revenue trends and seasonality
+          2. Analyze risk concentrations and vulnerabilities
+          3. Identify growth opportunities and quick wins
+          Output: Generate minimum 10 strategic insights with confidence scores
+        depends_on: [intelligence]
+        
+      - name: decision
+        agent: decisioning.decision
+        task: |
+          Synthesize all insights into prioritized strategic decisions:
+          1. Categorize by urgency (CRITICAL/HIGH/MEDIUM/LOW)
+          2. Quantify business impact in dollars
+          3. Define implementation timelines and resource needs
+          4. Create 30/60/90 day roadmap
+          Output: Save executive summary to executive_summary.json
+        depends_on: [discovery, intelligence, strategy]
+        
+      - name: visualization
+        agent: decisioning.visualization
+        task: |
+          Create interactive dashboard using all analysis results:
+          1. Generate Streamlit dashboard with executive summary
+          2. Create financial overview charts (Plotly)
+          3. Build strategic insights table with priorities
+          4. Design recommended actions timeline
+          Output: Update dashboards/decisioning_dashboard.py and data files
+        depends_on: [decision]
+  
+  # Quick financial health check
+  health_check:
+    description: "Quick financial health assessment (discovery + intelligence only)"
+    timeout: 120
+    steps:
+      - name: discovery
+        agent: decisioning.discovery
+        task: "Quick data discovery focusing on financial tables"
+      - name: intelligence
+        agent: decisioning.intelligence
+        task: "Calculate core financial metrics and health score"
+  
+  # Custom analysis with user-defined scope
+  custom_analysis:
+    description: "User-defined analysis scope"
+    interactive: true
+    steps:
+      - name: scope_definition
+        task: "Ask user to define analysis scope and objectives"
+      - name: adaptive_execution
+        task: "Execute relevant agents based on user scope"
+
+# System Configuration
+system:
+  # Output configuration
+  output:
+    base_directory: "."
+    results_file: "decisioning_results.json"
+    summary_file: "executive_summary.json"
+    dashboard_data: "dashboards/data/"
+  
+  # Logging
+  logging:
+    level: INFO
+    file: "logs/goose_decisioning.log"
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+  # Performance
+  performance:
+    max_concurrent_agents: 3
+    agent_timeout: 300  # 5 minutes per agent
+    cache_enabled: true
+    cache_ttl: 3600  # 1 hour
+  
+  # Error handling
+  error_handling:
+    retry_attempts: 3
+    retry_delay: 5  # seconds
+    fallback_model: claude-sonnet-4-20250514
+
+# Business Rules (can also be in .goosehints)
+business_rules:
+  # Data quality thresholds
+  data_quality:
+    max_null_percentage: 10
+    min_data_freshness_days: 7
+  
+  # Financial thresholds
+  financial:
+    collection_rate_target: 0.85
+    high_risk_ar_days: 90
+    customer_concentration_threshold: 0.20
+  
+  # Decision prioritization
+  decision_priority:
+    critical_cash_impact: 1000000  # $1M
+    critical_days_overdue: 30
+    high_impact_threshold: 500000  # $500K
+    medium_impact_threshold: 100000  # $100K
+  
+  # Health scoring weights
+  health_score:
+    financial_weight: 0.40
+    operational_weight: 0.30
+    customer_weight: 0.20
+    strategic_weight: 0.10
